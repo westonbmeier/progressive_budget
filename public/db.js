@@ -40,9 +40,24 @@ function pendingTransactions() {
                 method: "POST",
 
                 body: JSON.stringify(all.result),
-                
+
                 headers: {
                     Accept: "application/json, text/plain, */*",
                     "Content-Type": "application/json"
                 }
             })
+            .then(response => response.json())
+            
+            .then(() => {
+                const transaction = db.transaction(["toAdd"], "readwrite");
+
+                const store = transaction.objectStore("toAdd");
+
+                store.clear();
+            })
+            .catch(() => {
+                saveRecord();
+            });
+        }
+    }
+}
