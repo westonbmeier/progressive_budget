@@ -47,7 +47,7 @@ function pendingTransactions() {
                 }
             })
             .then(response => response.json())
-            
+
             .then(() => {
                 const transaction = db.transaction(["toAdd"], "readwrite");
 
@@ -61,3 +61,5 @@ function pendingTransactions() {
         }
     }
 }
+
+window.addEventListener("online", pendingTransactions);
