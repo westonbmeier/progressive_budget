@@ -13,3 +13,11 @@ request.onsuccess = function(event) {
         pendingTransactions();
     }
 }
+
+request.onerror = function(event) {console.log("Error " + event)};
+
+function saveRecord(dataToAdd) {
+    const transaction = db.transaction(["toAdd"], "readwrite");
+    const store = transaction.objectStore("toAdd");
+    store.add(dataToAdd);
+}
