@@ -17,4 +17,4 @@ This application keeps track of deposits and spending either on or offline. The 
 
 ## Screenshots ## 
 
-![Screenshot](public\screenshots\image.PNG)
+![Screenshot](public/screenshots/image.PNG)
